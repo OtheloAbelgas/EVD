@@ -1,0 +1,30 @@
+import random
+import time
+
+def keyboard_speed_test():
+    letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    print("Keyboard Speed Test!")
+    print("Type the letter shown as fast as you can.")
+    print("Press Enter to start...")
+
+    input()
+    try:
+        while True:
+            letter = random.choice(letters)
+            print(f"Type this letter: {letter}")
+
+            start = time.time()
+            user_input = input().upper()
+            end = time.time()
+
+            if user_input == letter:
+                reaction_time = end - start
+                print(f"Great! Reaction time: {reaction_time:.3f} seconds\n")
+            else:
+                print("Oops! That's the wrong letter.\n")
+
+    except KeyboardInterrupt:
+        print("\nGame Over! Thanks for playing.")
+
+if __name__ == "__main__":
+    keyboard_speed_test()
