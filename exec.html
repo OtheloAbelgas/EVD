@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="saveBtn">Save Data</button>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzhjWxOgBhcFYKMfDSCqH0kAs2oRyET3vxNTJjWXmL7rdLkauN1AjWmRNq2T2GDDH38/exec"; 
+
+  document.getElementById("saveBtn").addEventListener("click", () => {
+    const payload = { name: "John Doe", score: 95 };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg))
+    .catch(err => console.error("Error:", err));
+  });
+
+  fetch("https://script.google.com/macros/s/AKfycbzM7K73OCEChSbrCB4MN1-0e19ug89q59ys8-3WZZFcWINx32FwRtSwDDRwT3TgbCch/exec")
+  .then(res => res.json())
+  .then(data => console.log(data));
+
+</script>
+
+
+
+    
+</body>
+</html>
